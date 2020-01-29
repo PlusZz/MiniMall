@@ -37,5 +37,6 @@
         "selectedIconPath": "/assets/images/tabbar/profile_active.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap61.json"
 }
