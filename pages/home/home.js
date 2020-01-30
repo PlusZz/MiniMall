@@ -4,6 +4,8 @@ import {
   getGoodsData
 } from '../../service/home.js'
 
+
+const TOP_DISTANCE = 1000;
 const types = ['pop','new','sell']
 
 Page({
@@ -20,7 +22,9 @@ Page({
       new: {page: 0, list: []},
       sell: {page: 0, list: []}
     },
-    currentType: 'pop'
+    currentType: 'pop',
+    showBackTop: false,
+    isTabFixed: false
   },
 
   /**
@@ -81,9 +85,23 @@ Page({
     //设置currentType
     this.setData({
       currentType: types[index]
-    })
+    }) 
   },
 
+  //上拉加载更多
+  onReachBottom() {
+    this._getGoodsData(this.data.currentType)
+  },
+
+  onPageScroll(options) {
+    //1.取出scrollTop
+    const scrollTop = options.scrollTop;
+
+    //2.修改showBackTop的属性
+    this.setData({
+      showBackTop: scrollTop >= TOP_DISTANCE
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -119,14 +137,6 @@ Page({
   onPullDownRefresh: function() {
 
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
   /**
    * 用户点击右上角分享
    */

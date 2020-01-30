@@ -2,6 +2,8 @@
   "usingComponents": {
     "z-swiper": "/components/z-swiper/z-swiper",
     "w-tab-control": "/components/w-tab-control/w-tab-control",
+    "z-back-top": "/components/z-back-top/z-back-top",
+    "z-goods": "/components/z-goods/z-goods",
     "z-recommend": "./childCpns/z-recommend/z-recommend",
     "z-popular": "./childCpns/z-popular/z-popular"
   },

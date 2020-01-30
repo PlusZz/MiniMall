@@ -9,13 +9,10 @@
 <z-popular />
 
 <!-- 4. tab-control -->
-<w-tab-control titles="{{titles}}" bind:tabclick="handleTabClick" />
+<w-tab-control class="{{isTabFixed?'fixed':''}}" titles="{{titles}}" bind:tabclick="handleTabClick" />
 
 <!-- 5. 展示商品数据 -->
-<view class='goods'>
-  <view>----------------------</view>
-  <block wx:for="{{goods[currentType].list}}" wx:key="index">
-    <view>{{item.title}}</view>
-    <view>----------------------</view>
-  </block>
-</view>
+<z-goods goods="{{goods[currentType].list}}" />
+
+<!-- 6. 返回顶部 -->
+<z-back-top wx:if="{{showBackTop}}" />
